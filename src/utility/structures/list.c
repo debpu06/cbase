@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include "../logging/log.h"
 
 
 List* new_list() {
@@ -13,14 +14,21 @@ List* new_list() {
 }
 
 void free_list(List *list) {
-    assert(list != NULL);
+    if (assert_log(
+        list != NULL, 
+        __FILE__, 
+        "Attempting to free NULL List")) {
+            return;
+        }
     Node *current = list->head;
     while(current != NULL) {
         Node *next = current->next;
         free(current);
         current = next;
     }
+    current = NULL;
     free(list);
+    list = NULL;
 }
 
 Node *new_node(int value) {

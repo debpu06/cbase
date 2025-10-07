@@ -1,6 +1,6 @@
 #include "sort.h"
 #include <stdlib.h>
-#include <assert.h>
+#include "../logging/log.h"
 
 void swap(int *array, int a, int b) {
 	assert(array != NULL);
@@ -29,8 +29,10 @@ int partition(int *array, int low, int high) {
 }
 
 void quicksort(int *array, int low, int high){
-	if(low < high) {
-		assert(array != NULL);
+	if(!assert_log(array != NULL, __FILE__,"attempting to sort empty array")) {
+		return;
+	}
+	if(low < high) {	
 		int pivotIndex = partition(array, (int)low, high);
 		quicksort(array, low, pivotIndex - 1);
 		quicksort(array, pivotIndex + 1, high);

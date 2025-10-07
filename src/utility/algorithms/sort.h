@@ -1,5 +1,6 @@
 #ifndef SORT_H
 #define SORT_H
+#include <assert.h>
 /*
 * @brief Sorts an array of integers in ascending order using the quicksort algorithm.
 * @param array Pointer to the array to be sorted.
