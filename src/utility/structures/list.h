@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 
-typedef struct node {
-    struct node *next;
+typedef struct list_node {
+    struct list_node *next;
     int value;
 } Node;
 

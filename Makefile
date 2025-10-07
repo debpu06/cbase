@@ -4,10 +4,6 @@ SRCS := $(shell find ./src -type f -name '*.c')
 OBJS := $(patsubst ./src/%.c, ./build/%.o, $(SRCS))
 TARGET = ./build/a.out
 
-$(info SRCS=$(SRCS))
-$(info OBJS=$(OBJS))
-$(info TARGET=$(TARGET))
-
 .PHONY: all clean
 
 all: $(TARGET)
