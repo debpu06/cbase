@@ -1,7 +1,7 @@
 #include "list.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <assert.h>
 
 
 List* new_list() {
@@ -13,6 +13,7 @@ List* new_list() {
 }
 
 void free_list(List *list) {
+    assert(list != NULL);
     Node *current = list->head;
     while(current != NULL) {
         Node *next = current->next;
@@ -30,19 +31,21 @@ Node *new_node(int value) {
 }
 
 void append_int(List *list, int value) {
-   Node *node = new_node(value);
+    assert(list != NULL);
+    Node *node = new_node(value);
 
-   if (list->head == NULL) {
-        list->head = node;
-        list->tail = node;
-   }
-   else {
-        list->tail->next = node;
-        list->tail = node;
-   }
+    if (list->head == NULL) {
+            list->head = node;
+            list->tail = node;
+    }
+    else {
+            list->tail->next = node;
+            list->tail = node;
+    }
 }
 
 void print_list(List *list) {
+    assert(list != NULL);
     Node *current_node = list->head;
     while (current_node != NULL) {
         printf("%d, ", current_node->value);

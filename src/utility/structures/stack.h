@@ -2,8 +2,8 @@
 #define STACK_H
 #include <stdlib.h>
 
-typedef struct structnode {
-    struct structnode *next;
+typedef struct stack_node {
+    struct stack_node *next;
     int value;
 } StackNode;
 

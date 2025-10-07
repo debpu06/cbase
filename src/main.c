@@ -15,9 +15,8 @@ int main() {
     push(stack, 1);
     push(stack, 3);
     push(stack, 5);
+    printf("\n%d\n", pop(stack));
     printf("%d\n", pop(stack));
     printf("%d\n", pop(stack));
-    printf("%d\n", pop(stack));
-    //print_list(test_list);
     return 0;
 }

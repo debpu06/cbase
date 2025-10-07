@@ -15,6 +15,7 @@ StackNode * new_stacknode(int value) {
 }
 
 void free_stack(Stack *stack) {
+    assert(stack != NULL);
     StackNode *top = stack->top;
     while(top != NULL) {
         StackNode *temp = top->next;
